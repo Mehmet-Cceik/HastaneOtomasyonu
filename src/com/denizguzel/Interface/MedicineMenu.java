@@ -10,7 +10,30 @@ public class MedicineMenu implements Menu {
   Medicine medicine1 = new Medicine();
   Medicine medicine2 = new Medicine();
 
-  private void addMedicine () {
+    public MedicineMenu() {
+        System.out.println("1-İlaç ekleme\n" + "2-İlaç güncelleme\n" + "3-İlaç silme\n" + "4-İlaç listeleme\n");
+        Scanner menuChoice = new Scanner(System.in);
+        byte menuNumber = menuChoice.nextByte();
+
+        switch (menuNumber) {
+            case 1:
+                addMedicine();
+                break;
+            case 2:
+                updateMedicine();
+                break;
+            case 3:
+                deleteMedicine();
+                break;
+            case 4:
+                fileObject.List();
+                break;
+            default:
+                break;
+        }
+    }
+
+    private void addMedicine() {
     System.out.println("İlaç ismi giriniz");
     Scanner name = new Scanner(System.in);
     medicine1.setMedicineName(name.nextLine());
@@ -63,25 +86,6 @@ public class MedicineMenu implements Menu {
 
   @Override
   public void baseMenu () {
-    System.out.println("1-İlaç ekleme\n" + "2-İlaç güncelleme\n" + "3-İlaç silme\n" + "4-İlaç listeleme\n");
-    Scanner menuChoice = new Scanner(System.in);
-    byte    menuNumber = menuChoice.nextByte();
 
-    switch ( menuNumber ) {
-      case 1:
-        addMedicine();
-        break;
-      case 2:
-        updateMedicine();
-        break;
-      case 3:
-        deleteMedicine();
-        break;
-      case 4:
-        fileObject.List();
-        break;
-      default:
-        break;
-    }
   }
 }

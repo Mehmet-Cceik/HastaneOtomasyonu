@@ -30,20 +30,18 @@ public class Main {
             new PatientMenu();
             break;
           case 2:
-            DoctorMenu doctor = new DoctorMenu();
-            doctor.baseMenu();
+              new DoctorMenu();
             break;
           case 3:
-            DateMenu date = new DateMenu();
-            date.baseMenu();
+              new DateMenu();
             break;
           case 4:
-            MedicineMenu medicine = new MedicineMenu();
-            medicine.baseMenu();
+              new MedicineMenu();
             break;
           default:
             break;
         }
+          baseMenu();
       }
     };
     welcomeMenu.baseMenu();

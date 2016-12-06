@@ -11,7 +11,30 @@ public class DoctorMenu implements Menu {
   Doctor user = new Doctor();
   Doctor user2 = new Doctor();
 
-  private void addUser () {
+    public DoctorMenu() {
+        System.out.println("1-Doktor ekleme\n" + "2-Doktor güncelleme\n" + "3-Doktor silme\n" + "4-Doktor listeleme\n");
+        Scanner menuChoice = new Scanner(System.in);
+        byte menuNumber = menuChoice.nextByte();
+
+        switch (menuNumber) {
+            case 1:
+                addUser();
+                break;
+            case 2:
+                updateUser();
+                break;
+            case 3:
+                deleteUser();
+                break;
+            case 4:
+                fileObject.List();
+                break;
+            default:
+                break;
+        }
+    }
+
+    private void addUser() {
     System.out.println("İsim giriniz");
     Scanner name = new Scanner(System.in);
     user.setName(name.nextLine());
@@ -63,25 +86,6 @@ public class DoctorMenu implements Menu {
 
   @Override
   public void baseMenu () {
-    System.out.println("1-Doktor ekleme\n" + "2-Doktor güncelleme\n" + "3-Doktor silme\n" + "4-Doktor listeleme\n");
-    Scanner menuChoice = new Scanner(System.in);
-    byte    menuNumber = menuChoice.nextByte();
 
-    switch ( menuNumber ) {
-      case 1:
-        addUser();
-        break;
-      case 2:
-        updateUser();
-        break;
-      case 3:
-        deleteUser();
-        break;
-      case 4:
-        fileObject.List();
-        break;
-      default:
-        break;
-    }
   }
 }
